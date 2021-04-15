@@ -8,16 +8,24 @@
  */
 
  const inventory = {
-    shoes: 10,
-    socks: 6,
-    shirts: 10,
-    pants: 5,
-  }
-
-const sale = function (article, cant){
-  
+  shoes: 10,
+  socks: 6,
+  shirts: 10,
+  pants: 5,
 }
 
+const sale = function (article, cant){
+  let codigo;
+  
+  if (inventory[article] >= cant){
+  inventory[article] -= cant;
+  codigo = 200;
+}else{
+  codigo = 500;
+}
+
+return codigo;
+}
 // TESTS (no modificar)
 console.log(sale('shoes',8) === 200 && inventory.shoes === 2);
 console.log(sale('shoes',3) === 500 && inventory.shoes === 2);
